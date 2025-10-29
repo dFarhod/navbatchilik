@@ -8,6 +8,7 @@ interface ButtonProps {
   children: React.ReactNode;
   variant?: ButtonVariant;
   className?: string;
+  disabled?: boolean;
   icon?: LucideIcon; // yoki `React.ComponentType<{ size?: number }>`
 }
 

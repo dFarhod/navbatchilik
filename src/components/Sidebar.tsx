@@ -1,6 +1,5 @@
 import React from "react";
-import { ChevronRight, FileDown, type LucideIcon } from "lucide-react";
-import Button from "./Button";
+import { ChevronRight, type LucideIcon } from "lucide-react";
 
 interface Section {
   id: string;
@@ -12,17 +11,17 @@ interface SidebarProps {
   sections: Section[];
   activeSection: string;
   setActiveSection: React.Dispatch<React.SetStateAction<string>>;
-  exportAll: () => void;
+  // exportAll: () => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
   sections,
   activeSection,
   setActiveSection,
-  exportAll,
+  // exportAll,
 }) => {
   return (
-    <div className="w-80 bg-white dark:bg-gray-800 shadow-2xl p-6 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
+    <div className="z-10 h-screen fixed w-80 bg-white dark:bg-gray-800 shadow-2xl p-6 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
@@ -32,16 +31,6 @@ const Sidebar: React.FC<SidebarProps> = ({
           Chilonzor IIO FMB
         </p>
       </div>
-
-      {/* Export Button */}
-      <Button
-        onClick={exportAll}
-        variant="success"
-        icon={FileDown}
-        className="w-full mb-6 py-3 shadow-lg"
-      >
-        Export
-      </Button>
 
       {/* Navigation */}
       <nav className="space-y-1">
