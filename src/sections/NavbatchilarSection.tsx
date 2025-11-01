@@ -7,6 +7,7 @@ import type { INavbatchi } from "../types/interface";
 import { unvonlar } from "../data/unvonlar";
 import Button from "../components/Button";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const NavbatchilarSection = () => {
   const [navbatchilar, setNavbatchilar] = useState([
@@ -91,10 +92,9 @@ const NavbatchilarSection = () => {
         fish: item.fish,
       }));
 
-      const res = await axios.post(
-        "http://192.168.100.103:8888/api/navbatchilar/bulk",
-        { navbatchilar: payload }
-      );
+      const res = await axios.post(`${baseURL}/navbatchilar/bulk`, {
+        navbatchilar: payload,
+      });
 
       setMessage("✅ Ma’lumotlar muvaffaqiyatli saqlandi!");
       console.log("Yuborilgan data:", res.data);
@@ -113,7 +113,6 @@ const NavbatchilarSection = () => {
           2. Navbatchilar
         </h2>
         <div className="flex gap-2">
-          
           <Button
             variant="primary"
             icon={Save}

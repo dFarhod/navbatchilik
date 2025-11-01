@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import { BrushCleaning, Save } from "lucide-react";
 import Button from "../components/Button";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 interface PiyodaItem {
   id: number;
@@ -62,7 +63,7 @@ const PPX1PiyodaSection = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/ppxBosqichPiyoda/bulk",
+        `${baseURL}/ppxBosqichPiyoda/bulk`,
         payload
       );
       setMessage("✅ Ma’lumotlar muvaffaqiyatli saqlandi!");

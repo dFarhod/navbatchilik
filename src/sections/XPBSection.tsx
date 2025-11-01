@@ -5,6 +5,7 @@ import type { IXPBItem } from "../types/interface";
 import Button from "../components/Button";
 import { BrushCleaning, Save } from "lucide-react";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const XPBSection = () => {
   const [xpb, setXpb] = useState([
@@ -255,7 +256,7 @@ const XPBSection = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/ppxBosqich/bulk",
+        `${baseURL}/ppxBosqich/bulk`,
         {
           ppxBosqich: xodimlar,
         }

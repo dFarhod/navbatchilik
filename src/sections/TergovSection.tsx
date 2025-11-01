@@ -5,6 +5,7 @@ import type { ITergov } from "../types/interface";
 import Button from "../components/Button";
 import { Save } from "lucide-react";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const TergovSection = () => {
   const [tergov, setTergov] = useState([
@@ -42,7 +43,7 @@ const TergovSection = () => {
     };
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/tergovlar/bulk",
+        `${baseURL}/tergovlar/bulk`,
         payload
       );
 

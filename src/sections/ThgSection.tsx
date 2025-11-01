@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { BrushCleaning, Save } from "lucide-react";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 export interface ThgItem {
   id: number;
@@ -204,7 +205,7 @@ const ThgSection = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/thg/bulk",
+        `${baseURL}/thg/bulk`,
         payload
       );
 

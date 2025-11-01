@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import Input from "../components/Input";
 import type { IPPX1Item } from "../types/interface";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const PPX1Section = () => {
   const [ppx1Bosqich, setPpx1Bosqich] = useState([
@@ -256,7 +257,7 @@ const PPX1Section = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/ppxBosqich/bulk",
+        `${baseURL}/ppxBosqich/bulk`,
         {
           ppxBosqich: xodimlar,
         }

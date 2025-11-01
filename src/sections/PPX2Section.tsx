@@ -5,6 +5,7 @@ import type { IPPX2Item } from "../types/interface";
 import Button from "../components/Button";
 import { BrushCleaning, Save } from "lucide-react";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const PPX2Section = () => {
   const [ppx2Bosqich, setPpx2Bosqich] = useState([
@@ -111,7 +112,7 @@ const PPX2Section = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/ppxBosqich/bulk",
+        `${baseURL}/ppxBosqich/bulk`,
         {
           ppxBosqich: xodimlar,
         }

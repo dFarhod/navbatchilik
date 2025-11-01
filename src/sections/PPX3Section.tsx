@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import { BrushCleaning, Save } from "lucide-react";
 import Button from "../components/Button";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 interface PPX3Item {
   id: number;
@@ -274,7 +275,7 @@ const PPX3Section = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/ppxBosqich/bulk",
+        `${baseURL}/ppxBosqich/bulk`,
         {
           ppxBosqich: xodimlar,
         }

@@ -7,6 +7,7 @@ import { unvonlar } from "../data/unvonlar";
 import type { IMasul } from "../types/interface";
 import Button from "../components/Button";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const MasullarSection = () => {
   const [masullar, setMasullar] = useState([
@@ -80,10 +81,9 @@ const MasullarSection = () => {
         unvon: item.unvon,
         fish: item.fish,
       }));
-      const res = await axios.post(
-        "http://192.168.100.103:8888/api/masullar/bulk",
-        { masullar: payload }
-      ); // ✅ API manzilingizni shu yerda belgilang
+      const res = await axios.post(`${baseURL}/masullar/bulk`, {
+        masullar: payload,
+      }); // ✅ API manzilingizni shu yerda belgilang
       setMessage("✅ Ma’lumotlar muvaffaqiyatli saqlandi!");
       console.log("Yuborilgan data:", res.data);
     } catch (error) {
@@ -101,7 +101,6 @@ const MasullarSection = () => {
           1. Tuman Mas'ullari
         </h2>
         <div className="flex gap-2">
-          
           <Button
             variant="primary"
             icon={Save}

@@ -6,6 +6,7 @@ import Input from "../components/Input";
 import Select from "../components/Select";
 import { unvonlar } from "../data/unvonlar";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 const KonvoyNojSection = () => {
   const [noj, setNoj] = useState([
@@ -123,12 +124,9 @@ const KonvoyNojSection = () => {
     ];
 
     try {
-      const res = await axios.post(
-        "http://192.168.100.103:8888/api/xodimlar/bulk",
-        {
-          xodimlar,
-        }
-      );
+      const res = await axios.post(`${baseURL}/xodimlar/bulk`, {
+        xodimlar,
+      });
 
       console.log("✅ Yuborilgan data:", res.data);
     } catch (error) {
@@ -153,7 +151,6 @@ const KonvoyNojSection = () => {
           2.2 Konvoy va (NO‘J) guruxi taqsimoti (08:00 dan 08:00 gacha)
         </h2>
         <div className="flex gap-2">
-          
           <Button
             variant="primary"
             icon={Save}

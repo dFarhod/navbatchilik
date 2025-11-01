@@ -6,6 +6,7 @@ import { unvonlar } from "../data/unvonlar";
 import Button from "../components/Button";
 import { BrushCleaning, Plus, Save } from "lucide-react";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 export interface Xodim {
   unvon: string;
@@ -299,10 +300,7 @@ const ChbskSection = () => {
     };
 
     try {
-      const res = await axios.post(
-        "http://192.168.100.103:8888/api/saroylar/bulk",
-        payload
-      );
+      const res = await axios.post(`${baseURL}/saroylar/bulk`, payload);
 
       console.log("✅ Yuborilgan data:", res.data);
       setMessage("✅ Ma’lumotlar muvaffaqiyatli saqlandi!");

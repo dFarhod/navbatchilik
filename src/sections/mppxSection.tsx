@@ -6,6 +6,7 @@ import { unvonlar } from "../data/unvonlar";
 import Button from "../components/Button";
 import { BrushCleaning, Save } from "lucide-react";
 import axios from "axios";
+import { baseURL } from "@/service/api";
 
 export interface Xodim {
   unvon: string;
@@ -365,7 +366,7 @@ const MPPXSection = () => {
 
     try {
       const res = await axios.post(
-        "http://192.168.100.103:8888/api/saroylar/bulk",
+        `${baseURL}/saroylar/bulk`,
         payload
       );
 
